@@ -3,4 +3,21 @@
 	width: 100%;
 	height: 10%;
 	bottom: 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.alarmButton, .historyButton, .playlistButton {
+	width: 30%;
+	height: 80%;
+	border: 3px solid white;
+}
+
+.historyButton {
+	
+}
+
+.playlistButton {
+	
 }

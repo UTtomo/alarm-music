@@ -1,10 +1,12 @@
 import React from 'react';
 import './BottomMenu.css';
 
-function BottomMenu() {
+function BottomMenu(props) {
   return (
     <div className='BottomMenu'>
-      test
+      <button className='alarmButton' onClick={props.transitToAlarm}>Alarm</button>
+      <button className='historyButton' onClick={props.transitToHistory}>History</button>
+      <button className='playlistButton' onClick={props.transitToPlaylist}>Playlist</button>
     </div>
   );
 }
