@@ -1,10 +1,14 @@
 import React from 'react';
 import './HistoryPage.css';
 
-function HistoryPage() {
+function HistoryPage(props) {
   return (
     <div className='HistoryPage'>
-      history
+      {props.history.map((item, index) => (
+        <div key={index}>
+          {item.url}
+        </div>
+      ))}
     </div>
   );
 }

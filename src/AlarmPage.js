@@ -1,7 +1,7 @@
 import React from 'react';
 import './AlarmPage.css';
 
-function AlarmPage() {
+function AlarmPage(props) {
   return (
     <div className='AlarmPage'>
       alarm

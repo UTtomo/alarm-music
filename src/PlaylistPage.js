@@ -1,7 +1,7 @@
 import React from 'react';
 import './PlaylistPage.css';
 
-function PlaylistPage() {
+function PlaylistPage(props) {
   return (
     <div className='PlaylistPage'>
       playlist
