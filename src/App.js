@@ -59,21 +59,25 @@ function App() {
       hour: 0,
       minute: 12,
       playlistUID: 'ユニークなID2',
+      uid: '1'
     },
     {
       hour: 7,
       minute: 0,
       playlistUID: 'ユニークなID1',
+      uid: '2'
     },
     {
       hour: 8,
       minute: 0,
       playlistUID: 'ユニークなID2',
+      uid: '3'
     },
     {
       hour: 9,
       minute: 0,
       playlistUID: 'ユニークなID2',
+      uid: '4'
     },
   ])
 
@@ -88,7 +92,18 @@ function App() {
   if (pageNum == 0) {
     /* 新規アラームを追加する関数 */
     const addAlarm = function (hour, minute, playlistUID) {
-      setAlarmList([...alarmList, {hour, minute, playlistUID}])
+      setAlarmList([...alarmList, {hour, minute, playlistUID, uid: getUniqueStr()}])
+    }
+
+    /* アラームを削除する関数 */
+    const removeAlarm = (uid) => {
+      const otheralarms = []
+      for (let alarm of alarmList) {
+        if (alarm.uid === uid)
+          continue
+        otheralarms.push(alarm)
+      }
+      setAlarmList(otheralarms)
     }
 
     /* 履歴に新たな動画を追加する関数 */
@@ -98,7 +113,7 @@ function App() {
       }])
     }
 
-    page = <AlarmPage alarmList={alarmList} playlists={playlists} addAlarm={addAlarm} addHistory={addHistory}></AlarmPage>
+    page = <AlarmPage alarmList={alarmList} playlists={playlists} addAlarm={addAlarm} removeAlarm={removeAlarm} addHistory={addHistory}></AlarmPage>
 
 
   /* 履歴ページ */
@@ -118,7 +133,18 @@ function App() {
       setPlaylists([...playlists, newlist])
     }
 
-    page = <PlaylistPage playlists={playlists} addPlaylist={addPlaylist}></PlaylistPage>
+    /* 再生リストを削除する関数 */
+    const removePlaylist = (uid) => {
+      const otherlists = []
+      for (let list of playlists) {
+        if (list.uid === uid)
+          continue
+        otherlists.push(list)
+      }
+      setPlaylists(otherlists)
+    }
+
+    page = <PlaylistPage playlists={playlists} addPlaylist={addPlaylist} removePlaylist={removePlaylist}></PlaylistPage>
   }
 
   return (

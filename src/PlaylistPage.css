@@ -1,0 +1,45 @@
+.PlaylistPage > .PlaylistItem {
+	width: 80vw;
+	margin: 0 auto;
+	word-break: break-all;
+	margin-bottom: 5vh;
+}
+
+.PlaylistItem > .label {
+	font-size: large;
+}
+
+.PlaylistItem > .url {
+	height: 5vh;
+	font-size: small;
+	overflow: scroll;
+	color: white;
+}
+
+a {
+	color: white;
+}
+
+.PlaylistPage > .TopMenu {
+	height: 10vh;
+	position: relative;
+	margin-left: 7vw;
+	margin-right: 7vw;
+	margin-bottom: 5vh;
+}
+
+.PlaylistPage > .TopMenu > .edit {
+	position: absolute;
+	left: 0;
+	top: 5vh;
+	transform: translateY(-50%);
+	font-size: x-large;
+}
+
+.PlaylistPage > .TopMenu > .add {
+	position: absolute;
+	right: 0;
+	top: 5vh;
+	transform: translateY(-50%);
+	font-size: 10vw;
+}

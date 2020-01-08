@@ -1,0 +1,23 @@
+.AlarmPage > .TopMenu {
+	height: 10vh;
+	position: relative;
+	margin-left: 7vw;
+	margin-right: 7vw;
+	margin-bottom: 5vh;
+}
+
+.AlarmPage > .TopMenu > .edit {
+	position: absolute;
+	left: 0;
+	top: 5vh;
+	transform: translateY(-50%);
+	font-size: x-large;
+}
+
+.AlarmPage > .TopMenu > .add {
+	position: absolute;
+	right: 0;
+	top: 5vh;
+	transform: translateY(-50%);
+	font-size: 10vw;
+}
