@@ -1,8 +1,70 @@
+.PlaylistPage > .EditPage > .TopMenu {
+	height: 10vh;
+	position: relative;
+	margin-left: 7vw;
+	margin-right: 7vw;
+	margin-bottom: 5vh;
+}
+
+.PlaylistPage > .EditPage > .TopMenu > .Cancel {
+	position: absolute;
+	left: 0;
+	top: 5vh;
+	transform: translateY(-50%);
+	font-size: x-large;
+}
+
+.PlaylistPage > .EditPage > .TopMenu > .Enter {
+	position: absolute;
+	right: 0;
+	top: 5vh;
+	transform: translateY(-50%);
+	font-size: x-large;
+}
+
+.PlaylistPage > .EditPage > .Form {
+	width: 80vw;
+	height: 80vw;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+}
+
+.PlaylistPage > .EditPage > .Form > .Label {
+	align-self: center;
+	justify-self: center;
+	font-size: large;
+}
+
+.PlaylistPage > .EditPage > .Form > .Input {
+	width: 50vw;
+	align-self: center;
+	justify-self: center;
+	font-size: xx-large;
+	background-color: white;
+	color: black;
+}
+
 .PlaylistPage > .PlaylistItem {
 	width: 80vw;
 	margin: 0 auto;
 	word-break: break-all;
 	margin-bottom: 5vh;
+}
+
+.PlaylistPage > .PlaylistItem.editing {
+	display: grid;
+	grid-template-columns: 1fr 6fr;
+}
+
+.PlaylistPage > .PlaylistItem.editing > .remove {
+	font-size: xx-large;
+	grid-row-start: 1; 
+	grid-row-end: 3;
+    justify-self: center;
+    align-self: center;
+	color: gray;
+	margin-right: 5vw;
 }
 
 .PlaylistItem > .label {

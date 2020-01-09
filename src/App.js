@@ -58,25 +58,29 @@ function App() {
     {
       hour: 0,
       minute: 12,
-      playlistUID: 'ユニークなID2',
+	  playlistUID: 'ユニークなID2',
+	  isValid: false,
       uid: '1'
     },
     {
       hour: 7,
       minute: 0,
       playlistUID: 'ユニークなID1',
+	  isValid: false,
       uid: '2'
     },
     {
       hour: 8,
       minute: 0,
       playlistUID: 'ユニークなID2',
+	  isValid: true,
       uid: '3'
     },
     {
       hour: 9,
       minute: 0,
       playlistUID: 'ユニークなID2',
+	  isValid: false,
       uid: '4'
     },
   ])
@@ -92,7 +96,7 @@ function App() {
   if (pageNum == 0) {
     /* 新規アラームを追加する関数 */
     const addAlarm = function (hour, minute, playlistUID) {
-      setAlarmList([...alarmList, {hour, minute, playlistUID, uid: getUniqueStr()}])
+      setAlarmList([...alarmList, {hour, minute, playlistUID, isValid: false, uid: getUniqueStr()}])
     }
 
     /* アラームを削除する関数 */
@@ -104,16 +108,44 @@ function App() {
         otheralarms.push(alarm)
       }
       setAlarmList(otheralarms)
-    }
+	}
+	
+	const updateAlarm = (uid, hour, minute, playlistUID, isValid) => {
+		const list = []
+		for (let alarm of alarmList) {
+			if (alarm.uid === uid) {
+				list.push({
+					hour,
+					minute,
+					playlistUID,
+					isValid,
+					uid
+				})
+			} else {
+				list.push(alarm)
+			}
+		}
+		setAlarmList(list)
+	}
 
     /* 履歴に新たな動画を追加する関数 */
     const addHistory = function (videoUrl) {
       setHistory([...history, {
         url: videoUrl
       }])
-    }
+	}
+	
+	const getPlaylistInfo = function (uid) {
+		for (let list of playlists) {
+			if (list.uid === uid)
+				return list
+		}
+		return {
+			label: ''
+		}
+	}
 
-    page = <AlarmPage alarmList={alarmList} playlists={playlists} addAlarm={addAlarm} removeAlarm={removeAlarm} addHistory={addHistory}></AlarmPage>
+    page = <AlarmPage alarmList={alarmList} playlists={playlists} addAlarm={addAlarm} removeAlarm={removeAlarm} updateAlarm={updateAlarm} addHistory={addHistory} getPlaylistInfo={getPlaylistInfo}></AlarmPage>
 
 
   /* 履歴ページ */
@@ -142,9 +174,21 @@ function App() {
         otherlists.push(list)
       }
       setPlaylists(otherlists)
-    }
+	}
+	
+	const updatePlaylist = (uid, label, url) => {
+		const lists = []
+		for (let list of playlists) {
+		  if (list.uid === uid) {
+			lists.push({label, url, uid})
+		  } else {
+			lists.push(list)
+		  }
+		}
+		setPlaylists(lists)
+	}
 
-    page = <PlaylistPage playlists={playlists} addPlaylist={addPlaylist} removePlaylist={removePlaylist}></PlaylistPage>
+    page = <PlaylistPage playlists={playlists} addPlaylist={addPlaylist} removePlaylist={removePlaylist} updatePlaylist={updatePlaylist}></PlaylistPage>
   }
 
   return (

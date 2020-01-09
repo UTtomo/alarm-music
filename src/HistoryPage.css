@@ -1,0 +1,18 @@
+.HistoryPage {
+	width: 80vw;
+	margin: 0 auto;
+	margin-top: 5vh;
+}
+
+.HistoryPage > .Video {
+	margin-bottom: 5vh;
+	word-break: break-all;
+}
+
+.HistoryPage > .Video > a, .HistoryPage > .Video > img {
+	display: block;
+}
+
+.HistoryPage > .Video > img {
+	width: 100%;
+}
